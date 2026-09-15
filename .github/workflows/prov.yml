@@ -1,8 +1,7 @@
 name: oci
 on:
   schedule:
-    - cron: '*/3 * * * *'
-  workflow_dispatch:
+    - cron: '*/15 * * * *'
 
 jobs:
   prov:
