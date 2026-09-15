@@ -1,12 +1,8 @@
 name: oci
 on:
   schedule:
-    - cron: '* * * * *'   # every minutes
-  workflow_dispatch:        # manual run button
-
-concurrency:
-  group: oci
-  cancel-in-progress: false
+    - cron: '*/3 * * * *'
+  workflow_dispatch:
 
 jobs:
   prov:
