@@ -40,5 +40,4 @@ jobs:
           OCI_AD: ${{ secrets.OCI_AD }}
           OCI_SUBNET: ${{ secrets.OCI_SUBNET }}
           SSH_PUBKEY: ${{ secrets.SSH_PUBKEY }}
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: bash provision.sh
