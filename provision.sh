@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Runs in GitHub Actions every 15 min. Tries to launch the Always-Free ARM
+# Runs in GitHub Actions every 5 min. Tries to launch the Always-Free ARM
 # On capacity error: quiet exit.
 set -uo pipefail
 export SUPPRESS_LABEL_WARNING=True
