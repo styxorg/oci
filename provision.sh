@@ -17,20 +17,17 @@ if [ "${CNT:-0}" != "0" ]; then
   exit 0
 fi
 
-# Latest Ubuntu 24.04 ARM image
-IMG=$(oci compute image list --compartment-id "$C" \
-  --operating-system "Canonical Ubuntu" --operating-system-version "24.04" \
-  --shape "VM.Standard.A1.Flex" --sort-by TIMECREATED \
-  --query 'data[0].id' --raw-output)
-echo "image=$IMG"
-
 echo "$SSH_PUBKEY" > /tmp/key.pub
 
 set +e
 ID=$(oci compute instance launch \
-  --compartment-id "$C" --availability-domain "$AD" \
-  --shape VM.Standard.A1.Flex --shape-config '{"ocpus":1,"memoryInGBs":6}' \
-  --image-id "$IMG" --subnet-id "$SUBNET" --assign-public-ip true \
+  --compartment-id "$C" \
+  --availability-domain "$AD" \
+  --shape VM.Standard.A1.Flex \
+  --shape-config '{"ocpus":1,"memoryInGBs":6}' \
+  --image-id "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaafdyk3lbm3xfyp7mry2v5zk7yopvuzanxoodsoxnczaygxe4lltfq" \
+  --subnet-id "$SUBNET" \
+  --assign-public-ip true \
   --ssh-authorized-keys-file /tmp/key.pub --display-name gotit \
   --query 'data.id' --raw-output --wait-for-state RUNNING 2>/tmp/err.txt)
 rc=$?

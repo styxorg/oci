@@ -1,7 +1,7 @@
 name: oci
 on:
   schedule:
-    - cron: '*/1 * * * *'   # every minutes
+    - cron: '* * * * *'   # every minutes
   workflow_dispatch:        # manual run button
 
 concurrency:
