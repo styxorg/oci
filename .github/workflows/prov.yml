@@ -36,7 +36,7 @@ jobs:
 
       - name: prov
         env:
-          OCI_COMPARTMENT: ${{ secrets.OCI_TENANCY }}
+          OCI_COMPARTMENT: ${{ secrets.OCI_COMPARTMENT }}
           OCI_AD: ${{ secrets.OCI_AD }}
           OCI_SUBNET: ${{ secrets.OCI_SUBNET }}
           SSH_PUBKEY: ${{ secrets.SSH_PUBKEY }}
